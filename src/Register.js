@@ -4,8 +4,8 @@ import firebase from './Firebase'
 import ErrorMessages from './ErrorMessages'
 
 class Register extends Component{
-    constructor(){
-        super();
+    constructor(props){ //all the props will now available anywhere in component
+        super(props);
         this.state = {
             displayName:'',
             email:'',
@@ -41,7 +41,10 @@ class Register extends Component{
         firebase.auth().createUserWithEmailAndPassword(
             registrationInfo.email,
             registrationInfo.password
-            ).catch(error=>{
+            ).then(()=>{
+                this.props.registerUser(registrationInfo.displayName)
+            })
+            .catch(error=>{
             if(error.message !== null){
                 this.setState({
                     errorMessage: error.message
@@ -136,7 +139,7 @@ class Register extends Component{
               </div>
             </div>
           </form>
-            )
+        )
     }
 }
 
