@@ -19,8 +19,15 @@ class App extends Component {
     this.state = {
       user: null,
       displayName: null,
-      userID: null
+      userID: null,
+      toggle:true
     };
+  }
+
+  handleClick=()=>{
+    this.setState({
+      toggle:!this.state.toggle
+    })
   }
 
   componentDidMount(){
@@ -65,6 +72,14 @@ class App extends Component {
     });
   };
 
+  addMeeting = meetingName => {
+    const ref = firebase
+    .database()
+    .ref(`meetings/${this.state.user.uid}`)           //references tell the database where you want to write things to
+    ref.push({meetingName:meetingName})
+  }
+
+
   render() {
     return (
       <div>
@@ -81,7 +96,7 @@ class App extends Component {
         <Router>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
-          <Meetings path="/meetings" />
+          <Meetings path="/meetings" addMeeting={this.addMeeting}/>
           <Register path="/register"  registerUser={this.registerUser}/>
         </Router>
       </div>
