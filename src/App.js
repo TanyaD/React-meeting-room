@@ -94,10 +94,9 @@ class App extends Component {
   addMeeting = meetingName => {
     const ref = firebase
     .database()
-    .ref(`meetings/${this.state.user.uid}`)           //references tell the database where you want to write things to
+    .ref(`meetings/${this.state.user.uid}`)
     ref.push({meetingName:meetingName})
   }
-
 
   render() {
     return (
