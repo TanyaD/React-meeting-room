@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MeetingList from './MeetingList';
 
 class Meetings extends Component{
     constructor(props){ //all the props will now available anywhere in component
@@ -28,9 +29,7 @@ class Meetings extends Component{
                   <h1 className="font-weight-light">Add a Meeting</h1>
                   <div className="card bg-light">
                     <div className="card-body text-center">
-                      <form
-                        className="formgroup" onSubmit={this.handleSubmit}
-                      >
+                      <form className="formgroup" onSubmit={this.handleSubmit}>
                         <div className="input-group input-group-lg">
                           <input
                             type="text"
@@ -45,8 +44,7 @@ class Meetings extends Component{
                             <button
                               type="submit"
                               className="btn btn-sm btn-info"
-                              id="buttonAdd"
-                            >
+                              id="buttonAdd">
                               +
                             </button>
                           </div>
@@ -55,9 +53,23 @@ class Meetings extends Component{
                     </div>
                   </div>
                 </div>
+                <div className="col-11 col-md-6 text center">
+                    <div className="card corder-top-0 rounded-0">
+                        {this.props.meetings && this.props.meetings.length ?(
+                            <div className="card-body py-2">
+                                <h4 className="card-title font-weught-light m-0">Your Meetings</h4>
+                            </div>
+                        ) : null}
+                        {this.props.meetings && (
+                            <div className="list-group list-group-flush">
+                                <MeetingList meetings={this.props.meetings} />
+                            </div>
+                        )}
+                    </div>
+                </div>
               </div>
-</div>
-            )
+          </div>
+        )
     }
 }
 
