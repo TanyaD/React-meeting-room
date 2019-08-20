@@ -119,6 +119,7 @@ class App extends Component {
             path="/meetings"
             addMeeting={this.addMeeting}
             meetings={this.state.meetings}
+            userID={this.state.userID}
           />
           <Register path="/register"  registerUser={this.registerUser}/>
         </Router>
