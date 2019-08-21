@@ -22,6 +22,11 @@ class Checkin extends Component{
     handleSubmit=(e)=>{
         e.preventDefault();
         const ref = firebase.database().ref(`meetings/{$this.props.userID}/meetings/{$this.props.meetingID}/attendees`)
+        ref.push({
+            attendeeName: this.state.displayName,
+            attendeeEmail: this.state.email
+        });
+        navigate(`/attendees/${this.props.userID}/${this.props.emailID}`)
     }
 
     render(){
