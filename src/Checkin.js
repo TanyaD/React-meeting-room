@@ -31,7 +31,7 @@ class Checkin extends Component{
 
     render(){
         return(
-            <form className="mt-3">
+            <form className="mt-3" onSubmit={this.handleSubmit}>
               <div className="container">
                 <div className="row justify-content-center">
                   <div className="col-lg-6">
@@ -52,6 +52,8 @@ class Checkin extends Component{
                             id="displayName"
                             name="displayName"
                             placeholder="Name"
+                            value={this.state.displayName}
+                            onChange={this.handleChange}
                           />
                         </section>
                         <section className="form-group">
@@ -68,6 +70,8 @@ class Checkin extends Component{
                             id="email"
                             name="email"
                             placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
                           />
                         </section>
                         <div className="form-group text-right mb-0">
