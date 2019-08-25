@@ -4,7 +4,7 @@ import {navigate} from '@reach/router';
 
 
 class Checkin extends Component{
-    constructor(props){ //all the props will now available anywhere in component
+    constructor(props){
         super(props);
         this.state = {
             displayName:'',
