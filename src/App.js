@@ -11,10 +11,9 @@ import Meetings from './Meetings';
 import Register from './Register';
 import Login from './Login';
 import Checkin from './Checkin';
-
+import Attendees from './Attendees';
 
 class App extends Component {
-
   constructor(){
     super();
     this.state = {
