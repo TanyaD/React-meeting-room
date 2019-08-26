@@ -121,9 +121,15 @@ class App extends Component {
             meetings={this.state.meetings}
             userID={this.state.userID}
           />
-          <Checkin 
-            path="/checkin/:userID/:meetingId"/>
-          <Register path="/register"  registerUser={this.registerUser}/>
+          <Attendees 
+            path="/attendees/:userID/:meetingId"
+            adminUser={this.state.userID}
+          />
+          <Checkin path="/checkin/:userID/:meetingId"/>
+          <Register 
+            path="/register"
+            registerUser={this.registerUser}
+          />
         </Router>
       </div>
       );
