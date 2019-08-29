@@ -20,8 +20,8 @@ class AttendeesList extends Component{
             </div>
         })
         return(
-
-            )
+            <div className="row justify-content-center">{myAttendees}</div>
+        )
     }
 }
 
