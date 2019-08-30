@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import firebase from './Firebase'
+import AttendeesList from './AttendeesList'
 
 class Attendee extends Component{
     constructor(props){
@@ -38,7 +39,7 @@ class Attendee extends Component{
                   </h1>
                 </div>
               </div>
-              List Goes Here
+              <AttendeesList />
             </div>
         )
     }
