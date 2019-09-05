@@ -39,9 +39,9 @@ class Attendee extends Component{
                   </h1>
                 </div>
               </div>
-              <AttendeesList />
+              <AttendeesList userID={this.props.userID} attendees={this.state.displayAttendees} />
             </div>
-        )
+        );
     }
 }
 
