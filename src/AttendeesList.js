@@ -7,6 +7,7 @@ class AttendeesList extends Component{
         }
     }
     render(){
+        const admin = this.props.adminUser == this.props.userID ? true : false;
         const attendees = this.props.attendees;
         const myAttendees = atttendees.map(item=>{
             return(
@@ -19,8 +20,8 @@ class AttendeesList extends Component{
                     </div>
                   </div>
                 </div>
-            )
-        })
+            );
+        });
     }
 }
 
