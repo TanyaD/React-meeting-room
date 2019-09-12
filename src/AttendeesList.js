@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-import {GoTrashcan} from 'react-icons/go';
+import {GoTrashcan, GoStar} from 'react-icons/go';
 import firebase from './firebase';
 
 class AttendeesList extends Component{
@@ -32,9 +32,18 @@ class AttendeesList extends Component{
                                            
                     {admin && (
                       <div className="btn-group pr-2">
+                         <button
+                            className ={
+                                  'btn btn-sm '+ (item.star ? 'btn-info' : 'btn-outline-secondary')        }
+                         title="Give user a star"
+                         onClick={e => this.toggleStar(e, item.star, this.props.meetingID, item.attendeeID)}>
+                         <GoStar />
+                         </button>
+
                          <button className = "btn btn-sm btn-outline-secondary"
                          title="Delete Attendee"
                          onClick={e => this.deleteAttendee(e, this.props.meetingID, item.attendeeID)}>
+
                          <GoTrashcan />
                          </button>
                       </div>
