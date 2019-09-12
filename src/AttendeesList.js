@@ -16,6 +16,18 @@ class AttendeesList extends Component{
           const ref = firebase.database().ref(`meetings/${adminUser}/${whichMeeting}/attendees/${whichAttendee}`)
           ref.remove()
         }
+        
+        toggleStar =(e, star, whichMeeting, whichAttendee) => {
+          e.preventDefault();
+          const adminUser = this.props.adminUser;
+          const ref = firebase.database().ref(`meetings/${adminUser}/${whichMeeting}/attendees/${whichAttendee}/star`)
+          if(star === undefined){
+            ref.set(true)
+          } else {
+            ref.set(!star) 
+          }
+        }
+        
     render(){
         const admin = this.props.adminUser == this.props.userID ? true : false;
         const attendees = this.props.attendees;
