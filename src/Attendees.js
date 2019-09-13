@@ -18,11 +18,12 @@ class Attendee extends Component{
             let attendeesList=[];
             for(let item in attendees){
                 attendeesList.push({
-                    attendeeID: item;
-                    attendeeName:attendees[item].attendeeName;
-                    attendeeEmail:attendees[item].attendeeEmail;                    
-                })
-            };
+                    attendeeID: item,
+                    attendeeName:attendees[item].attendeeName,
+                    attendeeEmail:attendees[item].attendeeEmail,
+                    star: attendees[item].star
+                });
+            }
             this.setState({
                 displayAttendees:attendeesList;
             })
