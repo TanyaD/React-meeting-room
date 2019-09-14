@@ -51,7 +51,7 @@ class AttendeesList extends Component{
                          onClick={e => this.toggleStar(e, item.star, this.props.meetingID, item.attendeeID)}>
                          <GoStar />
                          </button>
-
+                         <a href={`mailto:$item.attendeeEmail`}>
                          <button className = "btn btn-sm btn-outline-secondary"
                          title="Delete Attendee"
                          onClick={e => this.deleteAttendee(e, this.props.meetingID, item.attendeeID)}>
