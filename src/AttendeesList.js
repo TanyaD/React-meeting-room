@@ -45,17 +45,20 @@ class AttendeesList extends Component{
                     {admin && (
                       <div className="btn-group pr-2">
                          <button
-                            className ={
+                         className ={
                                   'btn btn-sm '+ (item.star ? 'btn-info' : 'btn-outline-secondary')        }
                          title="Give user a star"
                          onClick={e => this.toggleStar(e, item.star, this.props.meetingID, item.attendeeID)}>
                          <GoStar />
                          </button>
-                         <a href={`mailto:$item.attendeeEmail`} className="btn btn-sm btn-outline-secondary" title="Mail Attendee"><GoMail/></a>
+                         <a href={`mailto:$item.attendeeEmail`}
+                         className="btn btn-sm btn-outline-secondary"
+                         title="Mail Attendee">
+                         <GoMail/>
+                         </a>
                          <button className = "btn btn-sm btn-outline-secondary"
                          title="Delete Attendee"
                          onClick={e => this.deleteAttendee(e, this.props.meetingID, item.attendeeID)}>
-
                          <GoTrashcan />
                          </button>
                       </div>
