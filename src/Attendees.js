@@ -7,6 +7,7 @@ class Attendee extends Component{
     constructor(props){
         super(props);
         this.state={
+            searchQuery:'',
             displayAttendees:[]
         }
     }
@@ -30,6 +31,13 @@ class Attendee extends Component{
         })
     }
 
+    handleChange=(e)=>{
+        const itemName = e.target.name;
+        const itemValue = e.target.value;
+
+        this.setState({[itemName]:itemValue})
+    }
+    
     render(){
         return(
             <div className="container mt-4">
